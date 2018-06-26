@@ -16,7 +16,13 @@
 		<script src="js/echarts/map/js/world.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-
+		<style type="text/css">
+			.fbbfblist li .fbbfb {
+				width: 180px;
+				height: 180px;
+				margin: 0 10px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -172,21 +178,22 @@
 				</div>
 				<div class="xyfbpic" id="main-map" style="width: 100%;height: 600px;background-color: #09152A;"></div>
 				<div class="blank10"></div>
+
 				<ul class="fbbfblist">
 					<li>
-						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<div class="fbbfb country1"></div>
 						<h3>中国</h3></li>
 					<li>
-						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<div class="fbbfb country2"></div>
 						<h3>澳大利亚</h3></li>
 					<li>
-						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<div class="fbbfb country3"></div>
 						<h3>美国</h3></li>
 					<li>
-						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<div class="fbbfb country4"></div>
 						<h3>芬兰</h3></li>
 					<li>
-						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<div class="fbbfb country5"></div>
 						<h3>加拿大</h3></li>
 				</ul>
 				<div class="blank10"></div>
@@ -198,9 +205,9 @@
 				var url = 'http://test/school_webapi';
 				//获取校区/campus/list
 				Mock.mock(url + '/mapTest', 'get', {
-					'dataList|100': [{
+					'dataList|20': [{
 						"name|1-3": "",
-						"className|100-300":103,
+						"className|100-300": 103,
 						"value": [-102.646409, 59.994255],
 						"lon|-170-180": 0,
 						"lat|-40-90": 0,
@@ -220,6 +227,10 @@
 				"coordinateSystem": "geo",
 				"zlevel": 3,
 				"showEffectOn": "emphasis",
+				"animationDurationUpdate": 2000,
+				"animationEasing": "cubicOut ",
+				//				"animationDelay": 1000,
+				"animationDelayUpdate": 1000,
 				"rippleEffect": {
 					period: 4,
 					scale: 2.5,
@@ -254,8 +265,8 @@
 				tooltip: {
 					formatter: function(d) {
 						var html = "<div style='color:#9ae5fc'>优秀校友</div>" +
-									"<div style='color:#9ae5fc'>姓名：" + d.data.name + "</div>" +
-									"<div style='color:#9ae5fc'>班级：" + d.data.className + "班</div>" ;
+							"<div style='color:#9ae5fc'>姓名：" + d.data.name + "</div>" +
+							"<div style='color:#9ae5fc'>班级：" + d.data.className + "班</div>";
 						return html;
 					}
 				},
@@ -296,21 +307,110 @@
 					fontSize: 12
 				}
 			};
-			$.get("http://test/school_webapi/mapTest", function(data) {
-				data = JSON.parse(data)
-				var arr = [];
-				data.dataList.forEach(function(item, i) {
-					arr.push({
-						"name": item.name,
-						"value": [item.lon, item.lat],
-						"className":item.className,
-						"symbolSize": item.symbolSize
-					})
+			setMap();
+			var timer = setInterval(function() {
+				setMap()
+			}, 10000);
+			
+			//设置 下方国家比例
+			var country1 = echarts.init($('.country1').get(0));
+			var country2 = echarts.init($('.country2').get(0));
+			var country3 = echarts.init($('.country3').get(0));
+			var country4 = echarts.init($('.country4').get(0));
+			var country5 = echarts.init($('.country5').get(0));
+			//绘制 百分比 饼图
+			country1.setOption(getCountryOption({
+				value: 80
+			}));
+			country2.setOption(getCountryOption({
+				value: 90
+			}));
+			country3.setOption(getCountryOption({
+				value: 70
+			}));
+			country4.setOption(getCountryOption({
+				value: 60
+			}));
+			country5.setOption(getCountryOption({
+				value: 55
+			}));
+			
+			//绘制地图
+			function setMap() {
+				$.get("http://test/school_webapi/mapTest", function(data) {
+					data = JSON.parse(data)
+					var arr = [];
+					data.dataList.forEach(function(item, i) {
+						arr.push({
+							"name": item.name,
+							"value": [item.lon, item.lat],
+							"className": item.className,
+							"symbolSize": item.symbolSize
+						})
+					});
+					series[0].data = arr;
+					// 最后初始化世界地图中的相关数据
+					chart.setOption(mapOption);
 				});
-				series[0].data = arr;  
-				// 最后初始化世界地图中的相关数据
-				chart.setOption(mapOption);
-			});
+			}
+			
+			function getCountryOption(d) {
+				var max = 100;
+				var value1 = max - d.value;
+				var option1 = {
+					series: [{
+						type: 'pie',
+						radius: ['50%', '70%'],
+						avoidLabelOverlap: false,
+						hoverAnimation: false,
+						label: {
+							normal: {
+								show: true,
+								position: 'center',
+								fontSize: 18,
+								color: '#da0819'
+							}
+						},
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						data: [{
+								value: d.value,
+								name: d.value + '%',
+								itemStyle: {
+									color: '#b4b5b5'
+								}
+							},
+							{
+								value: value1,
+								name: '',
+								itemStyle: {
+									color: 'transparent'
+								}
+							},
+						]
+					}, {
+						name: '中间圈',
+						type: 'pie',
+						radius: ['48%', '50%'],
+						avoidLabelOverlap: false,
+						hoverAnimation: false,
+
+						data: [{
+								value: 100,
+								name: '',
+								itemStyle: {
+									color: '#da0819'
+								}
+							},
+
+						]
+					}]
+				};
+				return option1;
+			}
 		</script>
 	</body>
 
