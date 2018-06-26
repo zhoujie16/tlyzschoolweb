@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>市一中校庆网</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=device-dpi">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/animate.min.css" />
+	</head>
+
+	<body>
+		<!--header-->
+		<div class="headmainbox zcheadbox">
+			<div class="headcbody">
+				<div class="logo fl">
+					<a href="index.html"><img src="img/logo.png"></a>
+				</div>
+				<div class="zcheadrbox fr">
+					<div class="zcheadtitle fl">校友点亮祝福</div>
+					<div class="zcheadfh fr">
+						<a href="index.html">返回校庆网</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--header end-->
+		<div class="zcbodybg bodybg">
+			<div class="cbody">
+				<div class="zctitle">
+					<h3>铜陵市一中80周年校庆--校友点亮祝福</h3></div>
+				<div class="zcmainbox">
+					<div>
+						<div class="zcbox">
+							<div class="zcdltitle"><span>注册点亮</span></div>
+							<ul class="zclist">
+								<li><input type="text" id="name" value="" placeholder="姓名" autocomplete="off" class="intext" style=" width:100%;" /></li>
+								<li><input type="text" id="nickname" value="" placeholder="外号" autocomplete="off" class="intext" style="width:100%;" /></li>
+								<li>
+									<select id="sex" class="selecttext" style="width:100%;">
+										<option value="">性别</option>
+										<option value="1">男</option>
+										<option value="0">女</option>
+									</select>
+								</li>
+								<li>
+									<select onchange="getClass()" id="campus" class="selecttext" style="width:100%;">
+										<option value="">毕业校区</option>
+									</select>
+								</li>
+								<li>
+									<select onchange="getClass()" id="grade" class="selecttext" style="width:100%;">
+										<option value="">毕业年份</option>
+									</select>
+								</li>
+								<li>
+									<select id="class" class="selecttext" style="width:100%;">
+										<option value="">所属班级</option>
+									</select>
+								</li>
+								<li><input type="text" id="phone" value="" placeholder="手机号" autocomplete="off" class="intext" style="width:100%;" /></li>
+								<li><input type="password" id="password" value="" placeholder="密码" autocomplete="off" class="intext" style=" width:100%;" /></li>
+							</ul>
+							<div class="blank10"></div>
+							<label class="labelcheckbox" for="Useragreement">
+								<input type="checkbox" name="autolog" checked="" id="Useragreement" class="check-c">我已阅读并接受<a href="#" target="_blank" class="main-link-color">用户协议</a>
+							</label>
+							<div class="blank10"></div>
+							<div class="msyyanbox clear"><input onclick="regist()" type="button" class="dlanxyzf transition3s" value="注  册" /></div>
+							<div class="blank10"></div>
+						</div>
+					</div>
+				</div>
+				<div class="blank50"></div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footerbox">
+			<div class="cbody">
+				<div class="footleft fl">
+					<h3>距离2018.6.30校庆还有</h3>
+					<div class="fltimebg"><span>6</span><span>2</span>
+						<font>天</font>
+					</div>
+				</div>
+				<div class="footcenter fl">
+					<p>主办单位：铜陵市第一中学　　承办单位：铜陵市第一中学　　技术支持：
+						<a href="http://www.putao282.com/" target="_blank">铜陵葡萄软件有限公司</a><br> 地址：铜陵市学院路777号　　邮编：200433　　E-mail : wxb@mail.shufe.edu.cn<br> ICP：
+						<a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备050520068号</a>　　Copyright 2018 铜陵一中　All rights reserved</p>
+				</div>
+				<ul class="footright fr">
+					<li><img src="img/foot2wm1.png"></li>
+					<li><img src="img/foot2wm2.png"></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!--footer end-->
+	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.hdialog.min.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+	<script>
+		services.campusList({}, function(res) {
+			if(!res.data) {
+				return;
+			}
+			var ele = $('#campus')[0];
+			res.data.forEach(function(item) {
+				var options = document.createElement('option');
+				options.value = item.id;
+				options.innerHTML = item.name;
+				ele.appendChild(options);
+			});
+		});
+		services.gradeList({}, function(res) {
+			if(!res.data) {
+				return;
+			}
+			var ele = $('#grade')[0];
+			res.data.forEach(function(item) {
+				var options = document.createElement('option');
+				options.value = item.id;
+				options.innerHTML = item.gradeName;
+				ele.appendChild(options);
+			});
+		});
+
+		function getClass() {
+			var ele = $('#class')[0];
+			ele.innerHTML = '<option value="">所属班级</option>';
+			const campusId = $('#campus')[0].value;
+			if(!campusId) {
+				return;
+			}
+			const gradeId = $('#grade')[0].value;
+			if(!gradeId) {
+				return;
+			}
+			services.classList({
+				campusId: campusId,
+				gradeId: gradeId
+			}, function(res) {
+				if(!res.data) {
+					return;
+				}
+				res.data.forEach(function(item) {
+					var options = document.createElement('option');
+					options.value = item.id;
+					options.innerHTML = item.name;
+					ele.appendChild(options);
+				});
+			});
+		}
+
+		function regist() {
+			const name = $('#name')[0].value;
+			if(!name) {
+				$.tooltip("请输入姓名");
+				return;
+			}
+			const nickname = $('#nickname')[0].value;
+			if(!nickname) {
+				$.tooltip("请输入外号");
+				return;
+			}
+			const sex = $('#sex')[0].value;
+			if(!sex) {
+				$.tooltip("请选择性别");
+				return;
+			}
+			const campusId = $('#campus')[0].value;
+			if(!campusId) {
+				$.tooltip("请选择毕业校区");
+				return;
+			}
+			const gradeId = $('#grade')[0].value;
+			if(!gradeId) {
+				$.tooltip("请选择毕业年份");
+				return;
+			}
+			const classId = $('#class')[0].value;
+			if(!classId) {
+				$.tooltip("请选择所属班级");
+				return;
+			}
+			const phone = $('#phone')[0].value;
+			if(!phone) {
+				$.tooltip("请输入手机号");
+				return;
+			}
+			const pwd = $('#password')[0].value;
+			if(!pwd) {
+				$.tooltip("请输入密码");
+				return;
+			}
+			services.studentActive({
+				name: name,
+				sex: sex,
+				campusId: campusId,
+				gradeId: gradeId,
+				classId: classId,
+				phone: phone,
+				nickname: nickname,
+				password: pwd
+			}, function(res) {
+				services.setUser(res.data.memberId);
+				window.location.href = '信息补全.html';
+			});
+		}
+	</script>
+
+</html>

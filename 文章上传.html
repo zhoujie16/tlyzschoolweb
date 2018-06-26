@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>市一中校庆网</title> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=device-dpi">
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta content="yes" name="apple-touch-fullscreen">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--header-->
+<div class="headmainbox">
+<div class="headcbody">
+<div class="logo fl"><a href="index.html"><img src="img/logo.png"></a></div>
+<div class="headrbox fr">
+     <!--nav-->
+<div class="navmain fl">
+    <div class="navbtn"><img src="img/nav-btn.png"></div>
+    <ul class="navbox nav-hd">
+        <li class="li1"><a href="校庆公告.html"><span>校庆聚焦<i class="icondown"></i></span></a>
+<div class="subnav-hd" style="display: none;">
+  <ul class="subnav-ct-hd">
+      <li><a href="校庆公告.html">校庆公告</a></li>
+      <li><a href="校庆资讯.html">校庆资讯</a></li>
+      <li><a href="校友动态.html">校友动态</a></li>
+   </ul>
+</div>   
+        </li>
+        <li class="li2"><a href="学校历史.html"><span>学校宣传<i class="icondown"></i></span></a>
+<div class="subnav-hd" style="display: none;">
+  <ul class="subnav-ct-hd">
+      <li><a href="学校历史.html">学校历史</a></li>
+      <li><a href="学校荣誉.html">学校荣誉</a></li>
+      <li><a href="名师风采.html">名师风采</a></li>
+      <li><a href="教学成果.html">教学成果</a></li>
+      <li><a href="影像一中.html">影像一中</a></li>
+   </ul>
+</div>
+        </li>
+        <li class="li3"><a href="校友分布.html"><span>校友分布</span></a></li>
+        <li class="li4"><a href="照片墙.html"><span>校友交流<i class="icondown"></i></span></a>
+<div class="subnav-hd" style="display: none;">
+  <ul class="subnav-ct-hd">
+      <li><a href="照片墙.html">照片墙</a></li>
+      <li><a href="校友祝福.html">校友祝福</a></li>
+      <li><a href="视频祝福.html">视频祝福</a></li>
+      <li><a href="校友公告.html">校友公告</a></li>
+   </ul>
+</div>
+        </li>
+        <li class="li5 cur"><a href="文章征集.html"><span>文章征集</span></a></li>
+    </ul>
+</div>
+<!--nav end-->
+<div class="searchhdmain fr">
+				<div class="search-hd cl">
+					<form action="http://s.ui.cn/index.html" method="get" id="searchForm">
+						<div class="search-status">
+							<div class="search-select">
+								<input type="text" class="search-val" placeholder="请输入您要查找的内容" autocomplete="off" value="" name="keywords" id="keywords">
+								<ul class="options">
+									<li><a href="javascript:;">app</a></li><li><a href="javascript:;">logo</a></li><li><a href="javascript:;">icon</a></li><li><a href="javascript:;">AE</a></li><li><a href="javascript:;">作品集</a></li>								</ul>
+							</div>
+						</div>
+						<input type="hidden" name="type" value="project" id="sType">
+						<a class="search-hd-btn" href="javascript:;"><i class="icon-search"></i></a>
+					</form>
+				</div>
+				<ul class="quick-hd cl">
+						<li class="quick-item">
+								<a class="quick-toggle" href="javascript:;">
+									<i class="iconupload"></i>
+								</a>
+								<ul class="quick-menu quicklist">
+									<li><a href="文章上传.html">上传文章</a></li>
+								</ul>
+						</li>
+					</ul>
+					<div class="login-hd">
+						<a href="登录.html">登录</a> | <a href="注册.html">注册</a>
+					</div>
+</div>
+     </div>
+</div>
+</div>
+<!--header end-->
+<div class="xxxcbodybg">
+<div class="cbody">
+<!--left--> 
+<div class="leftbox fl">
+<dl>
+<dt class="ltitlebox"><h3>文章征集</h3></dt>
+<dd>
+<ul class="lnavlist">
+<li><a href="我的文章.html">我的文章</a></li>
+<li class="cur"><a href="文章上传.html">写文章</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<!--left end--> 
+<!--right--> 
+<div class="rightbox fr">
+<div class="dqnavwzbox"><h3>写文章</h3></div>
+<div class="blank10"></div>
+<!--文章信息-->
+<div class="uploadconbox">
+<div class="uploadcontitle">文章信息</div>
+<ul class="uploadlist">
+<li>
+  <div class="worktextlbox">
+      <input type="text" id="form-data-title" placeholder="请输入文章标题" class="textstyle" value="" style="width:100%;"><span class="count">80</span>
+  </div>
+  <span class="errorprompt fr">
+  <i class="erroricon"></i>必填项
+</span>
+</li>
+<li>
+ <div class="worktextlbox">
+
+  <textarea type="text" class="textareastyle" id="form-data-summary" placeholder="文章简介" onpropertychange="MaxMe(this)" oninput="MaxMe(this)" style="height: 42px;width:100%;"></textarea><span class="count">120</span>
+      </div>
+                                    <span class="errorprompt hide fr">
+                                <i class="erroricon"></i>必填项
+                            </span>
+
+ </li>
+ </ul>
+<div class="blank10"></div> 
+ </div>
+<div class="blank10"></div> 
+<!--编辑文章-->
+<div class="uploadconbox">
+<div class="uploadcontitle">编辑文章</div>
+<div class="bjqmainbox"><textarea type="text" class="textareastyle" id="form-data-summary" placeholder="编辑器" onpropertychange="MaxMe(this)" oninput="MaxMe(this)" style="height: 355px;width:86%;"></textarea></div>
+
+<div class="clear"></div> 
+ </div>
+<div class="blank10"></div> 
+<!--上传文章封面-->
+<div class="uploadconbox">
+<div class="uploadcontitle">上传文章封面</div>
+<div class="padding30" style=" width:60%">
+<script src="js/webuploader.min.js"></script>
+<link rel="stylesheet" href="css/upload.css">
+<div class="uploader uploader1"><div class="ubox1">	<div id="uploader" class="wu-example">		<div class="queueList">			<div id="dndArea" class="placeholder">				<div id="filePicker" style="position: relative;width:225px;height:40px;margin: 0 auto;cursor:pointer;" class="webuploader-container"><div class="webuploader-pick">上传封面</div><div id="rt_rt_1ce7tkdqn1pf3n9h86c1ahsfp81" style="position: absolute; top: 0px; left: 28.5px; width: 168px; height: 44px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div>				<p style="margin-top:10px;">将图片拖到这里</p>			</div>		<ul class="filelist"></ul></div>		<div class="statusBar" style="display:none;">			<div class="progress" style="display: none;">				<span class="text">0%</span>				<span class="percentage" style="width: 0%;"></span>			</div><div class="info">共0张（0B），已上传0张</div>			<div class="btns">				<div id="filePicker2" class="webuploader-container"><div class="webuploader-pick">继续添加</div><div id="rt_rt_1ce7tkdqr10j618ci1hjf4h1hv46" style="position: absolute; top: 0px; left: 0px; width: 38px; height: 2px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div><div class="uploadBtn state-pedding">开始上传</div>			</div>		</div>	</div></div>
+</div>
+</div>
+<div class="clear"></div> 
+ </div>
+<div class="blank10"></div>
+<div class="articlefoot">
+                        <input type="button" class="publishbtn" value="发布">
+                        <input type="button" class="previewbtn" value="预览">
+                        
+                            <input type="button" class="rough" value="草稿自动保存">
+                        
+                        <a href="我的文章.html" target="_blank" class="drafts">草稿箱</a>
+                    </div>
+<div class="clear"></div> 
+</div>
+<!--right end--> 
+<div class="blank10"></div>
+</div>
+</div>
+<!--footer-->
+<div class="footerbox">
+<div class="cbody">
+<div class="footleft fl">
+<h3>距离2018.6.30校庆还有</h3>
+<div class="fltimebg"><span>6</span><span>2</span><font>天</font></div>
+</div>
+<div class="footcenter fl">
+<p>主办单位：铜陵市第一中学　　承办单位：铜陵市第一中学　　技术支持：<a href="http://www.putao282.com/" target="_blank">铜陵葡萄软件有限公司</a><br>
+地址：铜陵市学院路777号　　邮编：200433　　E-mail : wxb@mail.shufe.edu.cn<br>
+ICP：<a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备050520068号</a>　　Copyright 2018 铜陵一中　All rights reserved</p> 
+</div>
+<ul class="footright fr">
+<li><img src="img/foot2wm1.png"></li>
+<li><img src="img/foot2wm2.png"></li>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+<!--footer end--> 
+<script src="js/common.js"></script>
+</body>
+</html>

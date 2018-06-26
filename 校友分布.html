@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>市一中校庆网</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=device-dpi">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
+		<script src="js/echarts/map/js/world.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+		<!--header-->
+		<div class="headmainbox">
+			<div class="headcbody">
+				<div class="logo fl">
+					<a href="index.html"><img src="img/logo.png"></a>
+				</div>
+				<div class="headrbox fr">
+					<!--nav-->
+					<div class="navmain fl">
+						<div class="navbtn"><img src="img/nav-btn.png"></div>
+						<ul class="navbox nav-hd">
+							<li class="li1">
+								<a href="校庆公告.html"><span>校庆聚焦<i class="icondown"></i></span></a>
+								<div class="subnav-hd" style="display: none;">
+									<ul class="subnav-ct-hd">
+										<li>
+											<a href="校庆公告.html">校庆公告</a>
+										</li>
+										<li>
+											<a href="校庆资讯.html">校庆资讯</a>
+										</li>
+										<li>
+											<a href="校友动态.html">校友动态</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="li2">
+								<a href="学校历史.html"><span>学校宣传<i class="icondown"></i></span></a>
+								<div class="subnav-hd" style="display: none;">
+									<ul class="subnav-ct-hd">
+										<li>
+											<a href="学校历史.html">学校历史</a>
+										</li>
+										<li>
+											<a href="学校荣誉.html">学校荣誉</a>
+										</li>
+										<li>
+											<a href="名师风采.html">名师风采</a>
+										</li>
+										<li>
+											<a href="教学成果.html">教学成果</a>
+										</li>
+										<li>
+											<a href="影像一中.html">影像一中</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="li3 cur">
+								<a href="校友分布.html"><span>校友分布</span></a>
+							</li>
+							<li class="li4">
+								<a href="照片墙.html"><span>校友交流<i class="icondown"></i></span></a>
+								<div class="subnav-hd" style="display: none;">
+									<ul class="subnav-ct-hd">
+										<li>
+											<a href="照片墙.html">照片墙</a>
+										</li>
+										<li>
+											<a href="校友祝福.html">校友祝福</a>
+										</li>
+										<li>
+											<a href="视频祝福.html">视频祝福</a>
+										</li>
+										<li>
+											<a href="校友公告.html">校友公告</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="li5">
+								<a href="文章征集.html"><span>文章征集</span></a>
+							</li>
+						</ul>
+					</div>
+					<!--nav end-->
+					<div class="searchhdmain fr">
+						<div class="search-hd cl">
+							<form action="http://s.ui.cn/index.html" method="get" id="searchForm">
+								<div class="search-status">
+									<div class="search-select">
+										<input type="text" class="search-val" placeholder="请输入您要查找的内容" autocomplete="off" value="" name="keywords" id="keywords">
+										<ul class="options">
+											<li>
+												<a href="javascript:;">app</a>
+											</li>
+											<li>
+												<a href="javascript:;">logo</a>
+											</li>
+											<li>
+												<a href="javascript:;">icon</a>
+											</li>
+											<li>
+												<a href="javascript:;">AE</a>
+											</li>
+											<li>
+												<a href="javascript:;">作品集</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<input type="hidden" name="type" value="project" id="sType">
+								<a class="search-hd-btn" href="javascript:;"><i class="icon-search"></i></a>
+							</form>
+						</div>
+						<ul class="quick-hd cl">
+							<li class="quick-item">
+								<a class="quick-toggle" href="javascript:;">
+									<i class="iconupload"></i>
+								</a>
+								<ul class="quick-menu quicklist">
+									<li>
+										<a href="文章上传.html">上传文章</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<div class="login-hd">
+							<a href="登录.html">登录</a> |
+							<a href="注册.html">注册</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--header end-->
+		<div class="xyfbbodybg bodybg">
+			<div class="cbody">
+				<div class="fbsearchbox" style="z-index: 10;">
+					<select class="searchtext fl" style="color: #9ae5fc;">
+						<option>需要搜索的姓名</option>
+						<option>1年</option>
+						<option>2年</option>
+						<option>3年</option>
+					</select>
+					<select class="searchtext fl" style="color: #9ae5fc;">
+						<option>需要搜索的班级（届）</option>
+						<option>2018年</option>
+						<option>2017年</option>
+						<option>1016年</option>
+					</select>
+					<select class="searchtext fl" style="color: #9ae5fc;">
+						<option>需要搜索的班主任</option>
+						<option>张主任</option>
+						<option>李主任</option>
+						<option>王主任</option>
+					</select>
+					<button class="searchbtn fl" onclick="window.location.href='搜索校友.html'">搜索</button>
+				</div>
+				<div class="xyfbpic" id="main-map" style="width: 100%;height: 600px;background-color: #09152A;"></div>
+				<div class="blank10"></div>
+				<ul class="fbbfblist">
+					<li>
+						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<h3>中国</h3></li>
+					<li>
+						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<h3>澳大利亚</h3></li>
+					<li>
+						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<h3>美国</h3></li>
+					<li>
+						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<h3>芬兰</h3></li>
+					<li>
+						<div class="fbbfb"><img src="img/xyfbbfb.png"></div>
+						<h3>加拿大</h3></li>
+				</ul>
+				<div class="blank10"></div>
+			</div>
+		</div>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+			(function() {
+				var url = 'http://test/school_webapi';
+				//获取校区/campus/list
+				Mock.mock(url + '/mapTest', 'get', {
+					'dataList|100': [{
+						"name|1-3": "",
+						"className|100-300":103,
+						"value": [-102.646409, 59.994255],
+						"lon|-170-180": 0,
+						"lat|-40-90": 0,
+						"symbolSize|2-15.1-5": 3.75
+					}],
+					'msg': '操作成功',
+					'ret': 0,
+					'totalCount': 2
+				});
+			}())
+		</script>
+		<script type="text/javascript">
+			// 获取echarts的容器
+			var chart = echarts.init(document.getElementById("main-map"));
+			var series = [{
+				"type": "effectScatter",
+				"coordinateSystem": "geo",
+				"zlevel": 3,
+				"showEffectOn": "emphasis",
+				"rippleEffect": {
+					period: 4,
+					scale: 2.5,
+					brushType: 'fill',
+				},
+				"rippleEffect": {
+					"brushType": "stroke"
+				},
+				"label": {
+					"normal": {
+						"show": false,
+						"position": "left",
+						"formatter": "{b}"
+					}
+				},
+				"itemStyle": {
+					"normal": {
+						"color": "#9ae5fc"
+					}
+				},
+				"data": []
+			}]; // 用来存储地图数据
+			var mapOption = {
+				title: {
+					text: '校友分布',
+					textStyle: {
+						color: '#9ae5fc',
+						fontSize: 20,
+					},
+					left: 'center'
+				},
+				tooltip: {
+					formatter: function(d) {
+						var html = "<div style='color:#9ae5fc'>优秀校友</div>" +
+									"<div style='color:#9ae5fc'>姓名：" + d.data.name + "</div>" +
+									"<div style='color:#9ae5fc'>班级：" + d.data.className + "班</div>" ;
+						return html;
+					}
+				},
+				geo: {
+					map: 'world', // 与引用进来的地图js名字一致
+					roam: false, // 禁止缩放平移,
+					zoom: 1,
+					itemStyle: { // 每个区域的样式 
+						areaColor: '#000001',
+						borderColor: '#2B3A7C'
+					},
+					emphasis: {
+						itemStyle: {
+							areaColor: '#000001',
+						},
+					},
+					textStyle: { //全局字体样式
+
+					},
+					regions: [{ // 选中的区域
+						name: 'China',
+						selected: true,
+						itemStyle: { // 高亮时候的样式
+							emphasis: {
+								borderColor: '#2B3A7C',
+								borderWidth: 2
+							}
+						},
+						label: { // 高亮的时候不显示标签
+							emphasis: {
+								show: false
+							}
+						}
+					}]
+				},
+				series: series, // 将之前处理的数据放到这里
+				textStyle: {
+					fontSize: 12
+				}
+			};
+			$.get("http://test/school_webapi/mapTest", function(data) {
+				data = JSON.parse(data)
+				var arr = [];
+				data.dataList.forEach(function(item, i) {
+					arr.push({
+						"name": item.name,
+						"value": [item.lon, item.lat],
+						"className":item.className,
+						"symbolSize": item.symbolSize
+					})
+				});
+				series[0].data = arr;  
+				// 最后初始化世界地图中的相关数据
+				chart.setOption(mapOption);
+			});
+		</script>
+	</body>
+
+</html>

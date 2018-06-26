@@ -1,0 +1,10 @@
+﻿.guide_b_bg{position:fixed;z-index: -1;width:100%;height:100%;left:0;top: 0;right:0;bottom: 0;}
+body{ background:url(../img/tlsyzbg.png) repeat;}
+.guide_box{background:url(../img/over_on_bg.png) no-repeat;width:826px;height:403px;position:fixed;top:50%;left:50%;margin-left:-413px;margin-top:-201px;}
+.guide_which{height:193px;margin-top: 200px;width: 201px;float: right;margin-right: 141px;}
+.guide_which .school_ch{background:url(../img/guide_btnchose.png) no-repeat;width:201px;height:39px;text-align: center;line-height: 39px;margin-top: 20px;}
+.guide_which .school_ch a{color:#94070A;font-size:18px;}
+.guide_which .school_ch:hover{background:url(../img/guide_btnchose_selct.png) no-repeat;}
+.guide_which .school_ch:hover a{color:#fff;}
+
+.pcclose{ position:absolute; right:13px; top:15px; z-index:20;}
