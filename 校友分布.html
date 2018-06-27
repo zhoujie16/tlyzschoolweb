@@ -184,7 +184,7 @@
 					</select>
 					<button class="searchbtn fl" onclick="window.location.href='搜索校友.html'">搜索</button>
 				</div>
-				<div class="xyfbpic" id="main-map" style="width: 100%;height: 600px;background-color: #09152A;"></div>
+				<div class="xyfbpic" id="main-map" style="width: 100%;height: 600px;background-color: #09152A;overflow: hidden;"></div>
 				<div class="blank10"></div>
 
 				<ul class="fbbfblist">
@@ -285,6 +285,11 @@
 					map: 'world', // 与引用进来的地图js名字一致
 					roam: false, // 禁止缩放平移,
 					zoom: 1,
+					roam:true ,
+					scaleLimit:{
+						min:1,
+						max:10
+					},
 					nameMap: {
 						'Singapore Rep.': '新加坡',
 						'Dominican Rep.': '多米尼加',
